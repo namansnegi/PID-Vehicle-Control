@@ -23,9 +23,7 @@ The three videos attahced demonstrate:
 
 - *Describe how the final hyperparameters were chosen.*
 
-Hyperparameters were tuned manually at first. This was necessary because the narrow track left little room for error, and hence slightly wrong parameters quickly lead to unrecoverable crashes of the car and require a manual restart of the simulator. Once I found parameters that were able to get the car around the track reliably, I then implemented Twiddle. I felt it necessary to complete a full lap with each change in parameter because it was the only way to get a decent "score" (total error) for the parameter set. For this reason my parameter changes are allowed to "settle in" for 100 steps and are then evaluated for the next 2000 steps. In all, I allowed Twiddle to continue for over 1 million steps (or roughly 500 trips around the track) to fine tune the parameters to their final values (P: 0.134611, I: 0.000270736, D: 3.05349).
-
-I also implemented a PID controller for the throttle, to maximize the car's speed around the track. The throttle PID controller is fed the magnitude of the CTE because it doesn't make sense to throttle up for right-side CTE and down for left-side CTE, for example. For this reason the throttle controller doesn't include an I component, which would only grow indefinitely. The throttle controller was also fine-tuned using the same Twiddle loop, simultaneously with the steering controller. Though this is not an ideal setup (tuning parameters for two different controllers simultaneously), it still mostly converged to a good (if I do say so myself) solution.
+Hyperparameters were tuned manually at first. This was necessary because the narrow track left little room for error, and hence slightly wrong parameters quickly lead to unrecoverable crashes of the car and require a manual restart of the simulator. Once I found parameters that were able to get the car around the track reliably, I then implemented Twiddle to fine tune the parameters to their final values (P: 0.134611, I: 0.000270736, D: 3.05349).
 
 ---
 
